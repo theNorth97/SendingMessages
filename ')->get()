@@ -1,0 +1,26 @@
+[90m= [39m[34;4mIlluminate\Support\Collection[39;24m {#6224
+    [34mall[39m: [
+      {#6227
+        +"[1mid[22m": [35m1[39m,
+        +"[1memail[22m": "[32mvalerik2244@gmail.com[39m",
+        +"[1mchecked[22m": [36mtrue[39m,
+        +"[1mvalid[22m": [36mtrue[39m,
+        +"[1muser_id[22m": [36mnull[39m,
+      },
+      {#6229
+        +"[1mid[22m": [35m2[39m,
+        +"[1memail[22m": "[32mvalerik2245@gmail.com[39m",
+        +"[1mchecked[22m": [36mfalse[39m,
+        +"[1mvalid[22m": [36mfalse[39m,
+        +"[1muser_id[22m": [36mnull[39m,
+      },
+      {#6230
+        +"[1mid[22m": [35m3[39m,
+        +"[1memail[22m": "[32mtest@example.com[39m",
+        +"[1mchecked[22m": [36mfalse[39m,
+        +"[1mvalid[22m": [36mfalse[39m,
+        +"[1muser_id[22m": [36mnull[39m,
+      },
+    ],
+  }
+
