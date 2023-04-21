@@ -2,12 +2,14 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Email;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class send extends Command
 {
+
     /**
      * The name and signature of the console command.
      *
@@ -41,7 +43,7 @@ class send extends Command
                 //проверить, есть ли email пользователя в таблице emails и является ли он проверенным и валидным
                 $email = $user->email;
 
-                if (!$this->check_email($email)) {
+                if (!$this->checkEmail($email)) {
                     continue;
                 }
 
@@ -55,7 +57,7 @@ class send extends Command
                 });
 
                 //пометим пользователей, которым было отправлено уведомление
-                DB::table('users')->where('id', $user->id)->update(['notified_at' => now()]);
+               $user->update(['notified_at' => now()]);
             }
         }
 
@@ -63,34 +65,5 @@ class send extends Command
         return 0;
     }
 
-    //Функция check_email($email)Проверяет емейл на валидность и возвращает true или false.
-    //Пользователь должен быть изначально в таблице emails, со значениями checked - false , valid - false
-    //? Функция работает от 1 секунды до 1 минуты.
-    //? Вызов функции платный.
-
-    public function check_email($email): bool
-    {
-        //проверяем, существует ли уже запись с таким email в таблице emails
-        $existing_email = DB::table('emails')->where('email', $email)->first();
-
-        //проверяем, является ли email валидным
-        $valid = (bool)filter_var($email, FILTER_VALIDATE_EMAIL);
-
-        if ($existing_email) {
-            // сли запись существует, обновляем ее checked и valid значения
-            DB::table('emails')->where('email', $email)->update([
-                'checked' => true,
-                'valid' => $valid,
-            ]);
-            return $valid;
-        } else {
-            //если запись отсутствует, создаем новую запись с checked=true и valid соответствующим результату проверки
-            DB::table('emails')->insert([
-                'email' => $email,
-                'checked' => true,
-                'valid' => $valid,
-            ]);
-            return $valid;
-        }
-    }
 }
+
