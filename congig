@@ -1,0 +1,3 @@
+Host bitbucket.org
+    IdentityFile /home/myproject/{bitbucket_work}
+
