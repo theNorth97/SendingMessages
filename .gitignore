@@ -17,3 +17,8 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/resources/views/script1.js
+/resources/views/script2.js
+/resources/views/script3.js
+/resources/views/script4.js
+/resources/views/testView.blade.php

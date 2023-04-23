@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Services;
 
-use App\Models\Email;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -27,6 +26,8 @@ class send extends Command
     /**
      * Execute the console command.
      */
+
+    // вынести handle в services
 
     public function handle()
     {

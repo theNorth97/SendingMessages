@@ -21,3 +21,7 @@ Route::get('/q', function () {
     return 'And Hello again';
 });
 
+Route::get('/w', function () {
+    return view('testView');
+});
+
